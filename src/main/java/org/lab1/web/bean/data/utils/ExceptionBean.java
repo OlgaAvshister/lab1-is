@@ -1,11 +1,10 @@
 package org.lab1.web.bean.data.utils;
 
+import jakarta.annotation.ManagedBean;
+import jakarta.enterprise.context.SessionScoped;
 import lombok.Data;
 
-import jakarta.faces.bean.ManagedBean;
-import jakarta.faces.bean.SessionScoped;
-
-@ManagedBean(name = "exceptionBean")
+@ManagedBean("exceptionBean")
 @SessionScoped
 @Data
 public class ExceptionBean {

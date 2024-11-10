@@ -1,15 +1,14 @@
 package org.lab1.web.bean.auth;
 
+import jakarta.annotation.ManagedBean;
+import jakarta.enterprise.context.SessionScoped;
+import jakarta.faces.application.FacesMessage;
+import jakarta.faces.context.FacesContext;
 import lombok.Data;
 import org.lab1.data.CRUD;
 import org.lab1.data.entity.User;
 
-import jakarta.faces.application.FacesMessage;
-import jakarta.faces.bean.ManagedBean;
-import jakarta.faces.bean.SessionScoped;
-import jakarta.faces.context.FacesContext;
-
-@ManagedBean(name = "userBean")
+@ManagedBean("userBean")
 @SessionScoped
 @Data
 public class UserBean {
@@ -21,7 +20,6 @@ public class UserBean {
     private boolean isAdmin = false;
     private boolean isRequest = true;
     private User user;
-
 
 
     public boolean validateUser() {

@@ -1,11 +1,10 @@
 package org.lab1.web.bean.data.utils;
 
+import jakarta.annotation.ManagedBean;
+import jakarta.enterprise.context.SessionScoped;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import jakarta.faces.bean.ManagedBean;
-import jakarta.faces.bean.SessionScoped;
 
 @ManagedBean
 @SessionScoped

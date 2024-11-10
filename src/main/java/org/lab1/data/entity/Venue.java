@@ -2,8 +2,10 @@ package org.lab1.data.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
-
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.lab1.data.entity.enums.VenueType;
 import org.lab1.web.bean.data.Identable;
 

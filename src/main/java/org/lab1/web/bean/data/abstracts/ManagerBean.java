@@ -1,5 +1,8 @@
 package org.lab1.web.bean.data.abstracts;
 
+import jakarta.annotation.ManagedBean;
+import jakarta.enterprise.context.SessionScoped;
+import jakarta.faces.context.FacesContext;
 import lombok.Data;
 import org.lab1.data.CRUD;
 import org.lab1.data.entity.Ownerable;
@@ -8,18 +11,12 @@ import org.lab1.web.bean.auth.UserBean;
 import org.lab1.web.bean.data.Identable;
 import org.primefaces.PrimeFaces;
 
-
-import jakarta.faces.bean.ManagedBean;
-import jakarta.faces.bean.SessionScoped;
-import jakarta.faces.context.FacesContext;
-
-
 import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Map;
 import java.util.Stack;
 
-@ManagedBean(name = "manedgerBean")
+@ManagedBean("managerBean")
 @SessionScoped
 @Data
 public abstract class ManagerBean<T extends Ownerable & Identable> {
@@ -31,10 +28,6 @@ public abstract class ManagerBean<T extends Ownerable & Identable> {
 
     protected Stack<T> itemsStack;
 
-    protected T getSelectedItem() {
-        return itemsStack.peek();
-    }
-
     public ManagerBean(Class<T> classType, String name) {
         this.editPanelName = name + "EditPanel";
         this.componentDialogName = name + "ComponentDialog";
@@ -43,6 +36,10 @@ public abstract class ManagerBean<T extends Ownerable & Identable> {
         this.classType = classType;
 
         emptyInstance();
+    }
+
+    protected T getSelectedItem() {
+        return itemsStack.peek();
     }
 
     public void setSelectedItem(T selectedItem) {
@@ -62,8 +59,8 @@ public abstract class ManagerBean<T extends Ownerable & Identable> {
         System.out.println("addItem: " + selectedItem);
     }
 
-    protected User getCurrentOwner(){
-        Map<String, Object> session =  FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
+    protected User getCurrentOwner() {
+        Map<String, Object> session = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
         return CRUD.find(User.class, ((UserBean) session.get("userBean")).getId());
     }
 
@@ -89,7 +86,7 @@ public abstract class ManagerBean<T extends Ownerable & Identable> {
         editStack();
     }
 
-    public void freeStack(){
+    public void freeStack() {
         itemsStack.clear();
         emptyInstance();
     }

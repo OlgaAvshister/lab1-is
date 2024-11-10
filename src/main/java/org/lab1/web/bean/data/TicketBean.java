@@ -1,20 +1,23 @@
 package org.lab1.web.bean.data;
 
+import jakarta.annotation.ManagedBean;
+import jakarta.enterprise.context.SessionScoped;
+import jakarta.faces.application.FacesMessage;
+import jakarta.faces.context.FacesContext;
 import lombok.Getter;
 import lombok.Setter;
 import org.lab1.data.CRUD;
-import org.lab1.data.entity.*;
+import org.lab1.data.entity.Coordinates;
+import org.lab1.data.entity.Event;
+import org.lab1.data.entity.Ticket;
+import org.lab1.data.entity.Venue;
 import org.lab1.web.bean.data.abstracts.ManagerBean;
 
-import jakarta.faces.application.FacesMessage;
-import jakarta.faces.bean.ManagedBean;
-import jakarta.faces.bean.SessionScoped;
-import jakarta.faces.context.FacesContext;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-@ManagedBean(name = "ticketBean")
+@ManagedBean("ticketBean")
 @SessionScoped
 @Getter
 @Setter

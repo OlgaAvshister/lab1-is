@@ -22,5 +22,5 @@
     </persistence-unit>
 </persistence>
 
-            <!--  Options: create, drop-and-create, update  -->
+        <!--  Options: create, drop-and-create, update  -->
 

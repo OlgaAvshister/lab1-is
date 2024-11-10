@@ -3,7 +3,6 @@ package org.lab1.data.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.NotEmpty;
-
 import lombok.Data;
 import lombok.Setter;
 import org.lab1.data.entity.enums.TicketType;
@@ -110,7 +109,7 @@ public class Ticket implements Identable, Ownerable {
 
 
     public void setPrice(double price) {
-            if (price <= 0) throw new IllegalArgumentException("Price must be greater than 0");
+        if (price <= 0) throw new IllegalArgumentException("Price must be greater than 0");
         this.price = price;
     }
 
@@ -147,11 +146,11 @@ public class Ticket implements Identable, Ownerable {
         this.event = event;
     }
 
-    public Long getPassedEventId(){
+    public Long getPassedEventId() {
         return eventId;
     }
 
-    public Long getPassedCoordinatesId(){
+    public Long getPassedCoordinatesId() {
         return coordinatesId;
     }
 

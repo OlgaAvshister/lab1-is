@@ -5,7 +5,7 @@ import jakarta.faces.context.ExceptionHandlerFactory;
 
 public class CustomExceptionHandlerFactory extends ExceptionHandlerFactory {
 
-    private ExceptionHandlerFactory parent;
+    private final ExceptionHandlerFactory parent;
 
     public CustomExceptionHandlerFactory(ExceptionHandlerFactory parent) {
         this.parent = parent;

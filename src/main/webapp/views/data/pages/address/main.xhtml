@@ -1,27 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
+<html xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui" xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:c="http://java.sun.com/jsp/jstl/core">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns="http://www.w3.org/1999/xhtml"
+>
 <h:head/>
 <h:body>
     <ui:include src="../../head.xhtml"/>
-        <h:form id="addressTableForm">
-            // <p:poll interval="2" update="addressTableForm"/>
-            <p:outputLabel value="Address"/>
+    <h:form id="addressTableForm">
+        //
+        <p:poll interval="2" update="addressTableForm"/>
+        <p:outputLabel value="Address"/>
 
-            <ui:include src="table.xhtml"/>
+        <ui:include src="table.xhtml"/>
 
-            <p:commandButton
-                    value="Add"
-                    action="#{addressBean.emptyInstance()}"
-                    update="addressCreatePanel:addressCreateComponentDialog"
-                    oncomplete="PF('addressCreateComponentDialog').show();">
-            </p:commandButton>
-        </h:form>
+        <p:commandButton
+                value="Add"
+                action="#{addressBean.emptyInstance()}"
+                update="addressCreatePanel:addressCreateComponentDialog"
+                oncomplete="PF('addressCreateComponentDialog').show();">
+        </p:commandButton>
+    </h:form>
 
     <h:form id="addressCreatePanel">
         <p:dialog id="addressCreateComponentDialog" widgetVar="addressCreateComponentDialog" header="Create address">

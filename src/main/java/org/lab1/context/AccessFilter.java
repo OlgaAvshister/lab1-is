@@ -1,15 +1,10 @@
 package org.lab1.context;
 
-import org.lab1.web.bean.auth.UserBean;
-
-import jakarta.servlet.Filter;
-import jakarta.servlet.FilterChain;
-import jakarta.servlet.FilterConfig;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.ServletRequest;
-import jakarta.servlet.ServletResponse;
+import jakarta.servlet.*;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.lab1.web.bean.auth.UserBean;
+
 import java.io.IOException;
 
 public class AccessFilter implements Filter {

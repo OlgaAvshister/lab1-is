@@ -1,10 +1,10 @@
 package org.lab1.web.bean.data;
 
+import jakarta.annotation.ManagedBean;
+import jakarta.enterprise.context.SessionScoped;
 import lombok.Data;
 import org.lab1.data.entity.enums.TicketType;
 
-import jakarta.faces.bean.ManagedBean;
-import jakarta.faces.bean.SessionScoped;
 import java.util.List;
 
 @ManagedBean

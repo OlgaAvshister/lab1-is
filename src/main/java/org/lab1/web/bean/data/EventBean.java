@@ -1,14 +1,14 @@
 package org.lab1.web.bean.data;
 
+import jakarta.annotation.ManagedBean;
+import jakarta.enterprise.context.SessionScoped;
 import org.lab1.data.entity.Event;
 import org.lab1.web.bean.data.abstracts.UsedManagerBean;
 
-import jakarta.faces.bean.ManagedBean;
-import jakarta.faces.bean.SessionScoped;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@ManagedBean(name = "eventBean")
+@ManagedBean("eventBean")
 @SessionScoped
 public class EventBean extends UsedManagerBean<Event> {
 

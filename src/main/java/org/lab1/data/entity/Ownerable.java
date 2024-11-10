@@ -1,6 +1,7 @@
 package org.lab1.data.entity;
 
 public interface Ownerable {
-    void setOwner(User owner);
     User getOwner();
+
+    void setOwner(User owner);
 }

@@ -7,11 +7,12 @@ import jakarta.faces.context.ExceptionHandlerWrapper;
 import jakarta.faces.context.FacesContext;
 import jakarta.faces.event.ExceptionQueuedEvent;
 import jakarta.faces.event.ExceptionQueuedEventContext;
+
 import java.util.Iterator;
 
 public class CustomExceptionHandler extends ExceptionHandlerWrapper {
 
-    private ExceptionHandler wrapped;
+    private final ExceptionHandler wrapped;
 
     public CustomExceptionHandler(ExceptionHandler wrapped) {
         this.wrapped = wrapped;
@@ -27,7 +28,6 @@ public class CustomExceptionHandler extends ExceptionHandlerWrapper {
 
             FacesContext facesContext = FacesContext.getCurrentInstance();
             facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, t.getMessage(), null));
-
 
 
             // Remove the event from the queue

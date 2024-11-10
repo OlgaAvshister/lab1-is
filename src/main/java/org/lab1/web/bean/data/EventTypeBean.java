@@ -5,7 +5,7 @@ import org.lab1.data.entity.enums.EventType;
 import java.util.List;
 
 public class EventTypeBean {
-    private List<EventType> typeList;
+    private final List<EventType> typeList;
 
     public EventTypeBean() {
         typeList = List.of(EventType.values());

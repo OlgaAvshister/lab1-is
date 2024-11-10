@@ -4,6 +4,6 @@ public enum EventType {
     FOOTBALL,
     BASEBALL,
     BASKETBALL,
-    THEATRE_PERFORMANCE;
+    THEATRE_PERFORMANCE
 }
 

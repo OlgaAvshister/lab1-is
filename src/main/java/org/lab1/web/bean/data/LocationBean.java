@@ -1,18 +1,16 @@
 package org.lab1.web.bean.data;
 
+import jakarta.annotation.ManagedBean;
+import jakarta.enterprise.context.SessionScoped;
 import lombok.Getter;
 import lombok.Setter;
-import org.lab1.data.entity.Address;
 import org.lab1.data.entity.Location;
 import org.lab1.web.bean.data.abstracts.UsedManagerBean;
 
-import jakarta.faces.bean.ManagedBean;
-import jakarta.faces.bean.SessionScoped;
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@ManagedBean(name = "locationBean")
+@ManagedBean("locationBean")
 @SessionScoped
 @Getter
 @Setter
