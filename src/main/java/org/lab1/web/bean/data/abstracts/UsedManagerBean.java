@@ -6,9 +6,9 @@ import org.lab1.data.entity.Ticket;
 import org.lab1.web.bean.data.Identable;
 import org.lab1.web.bean.data.TicketBean;
 
-import javax.faces.application.FacesMessage;
-import javax.faces.context.ExternalContext;
-import javax.faces.context.FacesContext;
+import jakarta.faces.application.FacesMessage;
+import jakarta.faces.context.ExternalContext;
+import jakarta.faces.context.FacesContext;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;

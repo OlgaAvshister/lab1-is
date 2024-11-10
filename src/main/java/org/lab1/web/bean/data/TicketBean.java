@@ -6,10 +6,10 @@ import org.lab1.data.CRUD;
 import org.lab1.data.entity.*;
 import org.lab1.web.bean.data.abstracts.ManagerBean;
 
-import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
-import javax.faces.context.FacesContext;
+import jakarta.faces.application.FacesMessage;
+import jakarta.faces.bean.ManagedBean;
+import jakarta.faces.bean.SessionScoped;
+import jakarta.faces.context.FacesContext;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;

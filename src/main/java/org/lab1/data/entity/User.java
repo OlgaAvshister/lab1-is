@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 import org.lab1.data.CRUD;
 import org.lab1.web.bean.auth.UserBean;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;

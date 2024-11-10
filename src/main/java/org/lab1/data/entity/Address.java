@@ -1,6 +1,6 @@
 package org.lab1.data.entity;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 import lombok.*;
 import org.lab1.web.bean.data.Identable;

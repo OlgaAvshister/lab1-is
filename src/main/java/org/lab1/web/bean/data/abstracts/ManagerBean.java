@@ -9,9 +9,9 @@ import org.lab1.web.bean.data.Identable;
 import org.primefaces.PrimeFaces;
 
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
-import javax.faces.context.FacesContext;
+import jakarta.faces.bean.ManagedBean;
+import jakarta.faces.bean.SessionScoped;
+import jakarta.faces.context.FacesContext;
 
 
 import java.lang.reflect.Field;

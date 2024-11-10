@@ -1,18 +1,11 @@
 package org.lab1.data;
 
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
 import org.lab1.data.entity.*;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.Query;
-import javax.xml.stream.Location;
-
-import java.awt.print.Book;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 public class CRUD {
@@ -134,7 +127,7 @@ public class CRUD {
         return res;
     }
 
-    private static void refresh(){
+    private static void refresh() {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory(persistenceName);
         emf.getCache().evictAll();
         emf.close();

@@ -1,7 +1,7 @@
 package org.lab1.data.entity;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
 
 import lombok.*;
 import org.lab1.web.bean.data.Identable;

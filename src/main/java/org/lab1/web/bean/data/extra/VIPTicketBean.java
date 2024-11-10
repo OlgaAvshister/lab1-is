@@ -2,8 +2,8 @@ package org.lab1.web.bean.data.extra;
 
 import org.lab1.data.CRUD;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import jakarta.faces.bean.ManagedBean;
+import jakarta.faces.bean.SessionScoped;
 import java.util.List;
 
 @ManagedBean

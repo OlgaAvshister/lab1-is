@@ -3,8 +3,8 @@ package org.lab1.web.bean.auth;
 import org.lab1.data.CRUD;
 import org.lab1.data.entity.User;
 
-import javax.faces.bean.ApplicationScoped;
-import javax.faces.bean.ManagedBean;
+import jakarta.faces.bean.ApplicationScoped;
+import jakarta.faces.bean.ManagedBean;
 import java.util.List;
 import java.util.stream.Collectors;
 

@@ -1,7 +1,7 @@
 package org.lab1.data.entity;
 
-import javax.persistence.*;
-import javax.validation.constraints.Max;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.Max;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

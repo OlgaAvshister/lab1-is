@@ -6,9 +6,9 @@
 //import org.lab1.web.bean.auth.UserBean;
 //import org.lab1.web.bean.data.CoordinateBean;
 //
-//import javax.servlet.ServletContextEvent;
-//import javax.servlet.ServletContextListener;
-//import javax.servlet.annotation.WebListener;
+//import jakarta.servlet.ServletContextEvent;
+//import jakarta.servlet.ServletContextListener;
+//import jakarta.servlet.annotation.WebListener;
 //import java.io.IOException;
 //import java.nio.charset.Charset;
 //import java.nio.file.Files;

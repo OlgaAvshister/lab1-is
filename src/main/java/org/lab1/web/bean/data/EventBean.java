@@ -3,8 +3,8 @@ package org.lab1.web.bean.data;
 import org.lab1.data.entity.Event;
 import org.lab1.web.bean.data.abstracts.UsedManagerBean;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import jakarta.faces.bean.ManagedBean;
+import jakarta.faces.bean.SessionScoped;
 import java.util.List;
 import java.util.stream.Collectors;
 

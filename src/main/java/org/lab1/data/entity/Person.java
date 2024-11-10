@@ -5,7 +5,7 @@ import lombok.NoArgsConstructor;
 import org.lab1.data.entity.enums.Color;
 import org.lab1.web.bean.data.Identable;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
