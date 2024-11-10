@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui" xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+<h:head/>
+<h:body>
+    <ui:composition>
+        <p:dataTable var="person" value="#{personBean.items}"
+                     paginator="true" rows="5"
+                     paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
+                     rowsPerPageTemplate="5,10,15,25,50">
+
+            <p:column
+                    headerText="ID"
+                    sortBy="#{person.id}"
+                    filterBy="#{person.id}"
+                    filterMatchMode="contains">
+                <h:outputText value="#{person.id}"/>
+            </p:column>
+
+            <p:column
+                    headerText="EYECOLOR"
+                    sortBy="#{person.eyecolor}"
+                    filterBy="#{person.eyecolor}"
+                    filterMatchMode="contains">
+                <h:outputText value="#{person.eyecolor}"/>
+            </p:column>
+
+            <p:column
+                    headerText="HAIRCOLOR"
+                    sortBy="#{person.haircolor}"
+                    filterBy="#{person.haircolor}"
+                    filterMatchMode="contains">
+                <h:outputText value="#{person.haircolor}"/>
+            </p:column>
+
+            <p:column
+                    headerText="LOCATION"
+                    sortBy="#{person.location}"
+                    filterBy="#{person.location}"
+                    filterMatchMode="contains">
+                <h:outputText value="#{person.location}"/>
+            </p:column>
+
+            <p:column
+                    headerText="HEIGHT"
+                    sortBy="#{person.height}"
+                    filterBy="#{person.height}"
+                    filterMatchMode="contains">
+                <h:outputText value="#{person.height}"/>
+            </p:column>
+
+
+            <p:column headerText="Edit">
+                <p:commandButton
+                        value="edit"
+                        rendered="#{userBean.admin || userBean.id == person.owner.id}"
+                        action="#{personBean.setSelectedItem(person)}"
+                        update="personEditPanel:personComponentDialog"
+                        oncomplete="PF('personComponentDialog').show();">
+                </p:commandButton>
+            </p:column>
+        </p:dataTable>
+    </ui:composition>
+</h:body>
+</html>

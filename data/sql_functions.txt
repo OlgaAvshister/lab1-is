@@ -1,0 +1,118 @@
+CREATE OR REPLACE FUNCTION get_number_of_less_venue_tickets(min_venue NUMERIC)
+RETURNS INTEGER AS $$
+DECLARE
+    ticket_count INTEGER;
+BEGIN
+    SELECT COUNT(*)
+    INTO ticket_count
+    FROM tickets AS t
+    WHERE t.venue < min_venue;
+
+    RETURN ticket_count;
+END;
+$$
+LANGUAGE plpgsql;
+
+CREATE OR REPLACE FUNCTION get_number_of_more_number_tickets(max_number NUMERIC)
+RETURNS INTEGER AS $$
+DECLARE
+    ticket_count INTEGER;
+BEGIN
+    SELECT COUNT(*)
+    INTO ticket_count
+    FROM tickets AS t
+    WHERE t.number > max_number;
+
+    RETURN ticket_count;
+END;
+$$
+LANGUAGE plpgsql;
+
+CREATE OR REPLACE FUNCTION get_tickets_with_greater_number(max_number NUMERIC)
+RETURNS SETOF tickets AS $$
+BEGIN
+    RETURN QUERY
+    SELECT *
+    FROM tickets AS t
+    WHERE t.number > max_number;
+END;
+$$
+LANGUAGE plpgsql;
+
+CREATE OR REPLACE FUNCTION copy_ticket_as_vip(ticket_id INT)
+RETURNS VOID AS $$
+DECLARE
+    original_ticket RECORD;
+BEGIN
+    -- Получаем данные исходного билета
+    SELECT * INTO original_ticket
+    FROM tickets
+    WHERE id = ticket_id;
+
+    -- Если билет не найден, выводим ошибку
+    IF NOT FOUND THEN
+        RAISE EXCEPTION 'Ticket with ID % not found', ticket_id;
+    END IF;
+
+    -- Вставляем новый билет с изменениями
+    INSERT INTO tickets (
+        name, coordinates, creationDate, person, event, price, type, discount, number, venue
+    )
+    VALUES (
+        original_ticket.name,          -- Скопируем имя
+        original_ticket.coordinates,   -- Скопируем координаты
+        original_ticket.creationDate,  -- Скопируем дату создания
+        original_ticket.person,        -- Скопируем владельца
+        original_ticket.event,         -- Скопируем событие
+        original_ticket.price * 2,     -- Удваиваем цену
+        'VIP',                         -- Тип билета будет 'VIP'
+        original_ticket.discount,      -- Скопируем скидку
+        original_ticket.number,        -- Скопируем номер билета
+        original_ticket.venue          -- Скопируем место проведения
+    );
+
+END;
+$$ LANGUAGE plpgsql;
+
+
+CREATE OR REPLACE FUNCTION copy_ticket_with_discount(ticket_id INT, discount_percent NUMERIC)
+RETURNS VOID AS $$
+DECLARE
+    original_ticket RECORD;
+    new_price NUMERIC;
+BEGIN
+    -- Получаем данные исходного билета
+    SELECT * INTO original_ticket
+    FROM tickets
+    WHERE id = ticket_id;
+
+    -- Если билет не найден, выводим ошибку
+    IF NOT FOUND THEN
+        RAISE EXCEPTION 'Ticket with ID % not found', ticket_id;
+    END IF;
+
+    -- Рассчитываем новую цену, увеличив её на величину, равную discount_percent от original_ticket.price
+    new_price := original_ticket.price + (original_ticket.price * discount_percent / 100);
+
+    -- Вставляем новый билет с изменениями
+    INSERT INTO tickets (
+        name, coordinates, creationDate, person, event, price, type, discount, number, venue
+    )
+    VALUES (
+        original_ticket.name,           -- Скопируем имя
+        original_ticket.coordinates,    -- Скопируем координаты
+        original_ticket.creationDate,   -- Скопируем дату создания
+        original_ticket.person,         -- Скопируем владельца
+        original_ticket.event,          -- Скопируем событие
+        new_price,                      -- Новая цена с увеличением
+        original_ticket.type,           -- Скопируем тип билета
+        discount_percent,               -- Новая скидка в процентах
+        original_ticket.number,         -- Скопируем номер билета
+        original_ticket.venue           -- Скопируем место проведения
+    );
+
+END;
+$$ LANGUAGE plpgsql;
+
+
+

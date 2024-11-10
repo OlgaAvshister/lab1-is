@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head/>
+<h:body>
+    <ui:include src="../head.xhtml"/>
+
+    <h:form>
+        <h:panelGrid columns="1">
+            <h:outputLabel value="Вернуть массив объектов, значение поля number которых больше заданного."/>
+            <p:spinner value="#{strongerBean.minNumber}"/>
+            <p:commandButton value="Вернуть массив" update="@form"/>
+            <ui:include src="/views/data/pages/ticket/table.xhtml">
+                <ui:param name="bean" value="#{strongerBean}"/>
+                <ui:param name="needEdit" value="#{false}"/>
+            </ui:include>
+        </h:panelGrid>
+    </h:form>
+
+    <h:form>
+        <h:panelGrid columns="1">
+            <h:outputLabel value="Вернуть количество объектов, значение поля number которых больше заданного."/>
+            <p:spinner value="#{strongerBean.minNumber}" min="0"/>
+            <p:commandButton value="Подсчитать" action="#{strongerBean.countObjects}" update="resultPanel"/>
+
+            <h:panel id="resultPanel">
+                <h:outputText value="Количество объектов: #{strongerBean.objectCount}" rendered="#{strongerBean.objectCount != null}"/>
+            </h:panel>
+        </h:panelGrid>
+    </h:form>
+
+    <h:form>
+        <h:panelGrid columns="1">
+            <h:outputLabel value="Вернуть количество объектов, значение поля venue которых меньше заданного."/>
+            <p:spinner value="#{strongerBean.maxVenue}" min="0"/>
+            <p:commandButton value="Подсчитать" action="#{strongerBean.countByVenue}" update="resultPanel"/>
+
+            <h:panel id="resultPanel">
+                <h:outputText value="Количество объектов: #{strongerBean.objectCount}" rendered="#{strongerBean.objectCount != null}"/>
+            </h:panel>
+        </h:panelGrid>
+    </h:form>
+
+    <h:form>
+        <h:panelGrid columns="1">
+            <h:outputLabel value="Скопировать указанный билет, создав такой же, но с категорией VIP и удвоенной ценой"/>
+            <h:outputLabel value="Введите id"/>
+            <p:inputText value="#{ticketBean.ticketId}" required="true"/>
+
+            <p:commandButton value="Копировать билет" action="#{ticketBean.copyTicket}" update="resultPanel"/>
+
+            <h:panel id="resultPanel">
+                <h:outputText value="Создан новый билет: #{ticketBean.newTicketDetails}" rendered="#{ticketBean.newTicketDetails != null}"/>
+            </h:panel>
+        </h:panelGrid>
+    </h:form>
+
+    <h:form>
+        <h:panelGrid columns="1">
+            <h:outputLabel value="Создать новый билет на основе указанного, указав скидку в заданное число % и одновременно увеличив цену билета на ту же самую сумму"/>
+            <h:outputLabel value="Введите id"/>
+            <p:inputText value="#{ticketBean.ticketId}" required="true"/>
+
+            <h:outputLabel value="Введите процент скидки:"/>
+            <p:spinner value="#{ticketBean.discountPercentage}" min="0" max="100" required="true"/>
+
+            <p:commandButton value="Создать новый билет" action="#{ticketBean.createNewTicket}" update="resultPanel"/>
+
+            <h:panel id="resultPanel">
+                <h:outputText value="Создан новый билет: #{ticketBean.newTicketDetails}" rendered="#{ticketBean.newTicketDetails != null}"/>
+            </h:panel>
+        </h:panelGrid>
+    </h:form>
+
+</h:body>
+</html>
